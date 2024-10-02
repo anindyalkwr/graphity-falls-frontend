@@ -1,5 +1,5 @@
-import * as React from 'react'
 import Link from 'next/link'
+import { useState, forwardRef } from 'react'
 import { Input } from '@/components/ui/input'
 import { cn } from '@/lib/utils'
 import { LogoIcon, SearchIcon, BurgerIcon } from '@/components/icons'
@@ -15,8 +15,8 @@ import {
     navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
 
-const Navbar: React.FC = () => {
-    const [isMenuOpen, setIsMenuOpen] = React.useState(false)
+const Navbar = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     return (
         <nav className="bg-white shadow-md py-4 px-6 flex items-center justify-between">
@@ -41,15 +41,13 @@ const Navbar: React.FC = () => {
                             </NavigationMenuTrigger>
                             <NavigationMenuContent>
                                 <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                                    {/* Left Side - Description */}
                                     <li className="row-span-3">
                                         <NavigationMenuLink asChild>
                                             <a
                                                 className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                                                 href="/characters"
                                             >
-                                                <LogoIcon className="h-6 w-6" />{' '}
-                                                {/* Replace with your own logo/icon */}
+                                                <LogoIcon className="h-6 w-6" />
                                                 <div className="mb-2 mt-4 text-lg font-medium">
                                                     Explore the Characters
                                                 </div>
@@ -85,15 +83,13 @@ const Navbar: React.FC = () => {
                             </NavigationMenuTrigger>
                             <NavigationMenuContent>
                                 <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                                    {/* Left Side - Description */}
                                     <li className="row-span-3">
                                         <NavigationMenuLink asChild>
                                             <a
                                                 className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                                                 href="/episodes"
                                             >
-                                                <LogoIcon className="h-6 w-6" />{' '}
-                                                {/* Replace with your own logo/icon */}
+                                                <LogoIcon className="h-6 w-6" />
                                                 <div className="mb-2 mt-4 text-lg font-medium">
                                                     Watch All Episodes
                                                 </div>
@@ -110,7 +106,6 @@ const Navbar: React.FC = () => {
                                         </NavigationMenuLink>
                                     </li>
 
-                                    {/* Right Side - List of Episodes */}
                                     {episodes.map((episode) => (
                                         <ListItem
                                             key={episode.title}
@@ -160,7 +155,6 @@ const Navbar: React.FC = () => {
                         <BurgerIcon className="h-8 w-8 text-gray-800" />
                     </button>
 
-                    {/* Mobile Dropdown Menu */}
                     {isMenuOpen && (
                         <div className="absolute top-16 right-0 w-64 bg-white shadow-lg">
                             <ul className="flex flex-col space-y-2 p-4">
@@ -194,7 +188,7 @@ const Navbar: React.FC = () => {
     )
 }
 
-const ListItem = React.forwardRef<
+const ListItem = forwardRef<
     React.ElementRef<'a'>,
     React.ComponentPropsWithoutRef<'a'>
 >(({ className, title, children, ...props }, ref) => {
