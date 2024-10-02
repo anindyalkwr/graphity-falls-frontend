@@ -101,9 +101,10 @@ const Navbar: React.FC = () => {
                                                     Discover episodes from the
                                                     hit series SpongeBob
                                                     SquarePants, from the
-                                                    classic "Pilot" to fan
-                                                    favorites like "Band Geeks"
-                                                    and more.
+                                                    classic &quot;Pilot&quot; to
+                                                    fan favorites like
+                                                    &quot;Band Geeks&quot; and
+                                                    more.
                                                 </p>
                                             </a>
                                         </NavigationMenuLink>
