@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import { useState, forwardRef } from 'react'
-import { Input } from '@/components/ui/input'
 import { cn } from '@/lib/utils'
-import { LogoIcon, SearchIcon, BurgerIcon } from '@/components/icons'
-import { characters, episodes } from './constant' // Import characters and episodes
+import { LogoIcon } from '@/components/icons'
+import { characters, episodes } from './constant'
+import { FaBars, FaTimes } from 'react-icons/fa'
 
 import {
     NavigationMenu,
@@ -18,23 +18,35 @@ import {
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-    return (
-        <nav className="bg-white shadow-md py-4 px-6 flex items-center justify-between">
-            {/* Left Side: Logo, Web Name, and Navigation Menu */}
-            <div className="flex items-center space-x-4 w-full lg:w-auto">
-                <div className="flex items-center space-x-4">
-                    <LogoIcon className="h-8 w-8 text-black" />
-                    <Link
-                        href="/"
-                        className="scroll-m-20 text-2xl font-semibold tracking-tight"
-                    >
-                        Graphity Falls
-                    </Link>
-                </div>
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen)
+    }
 
+    return (
+        <nav className="bg-white shadow-md py-4 px-6 flex items-center relative">
+            {/* Logo and Title */}
+            <div className="flex items-center space-x-4 w-full lg:w-auto">
+                <LogoIcon className="h-8 w-8 text-black" />
+                <Link
+                    href="/"
+                    className="scroll-m-20 text-2xl font-semibold tracking-tight"
+                >
+                    Graphity Falls
+                </Link>
+            </div>
+
+            {/* Burger Icon for Mobile */}
+            <button
+                className="lg:hidden text-2xl text-gray-700 focus:outline-none"
+                onClick={toggleMenu}
+            >
+                {isMenuOpen ? <FaTimes /> : <FaBars />}
+            </button>
+
+            {/* Navigation Menu for Larger Screens */}
+            <div className="hidden lg:flex items-center space-x-6 ml-6">
                 <NavigationMenu>
                     <NavigationMenuList className="hidden lg:flex lg:space-x-4 ml-6">
-                        {/* Dropdown for Characters */}
                         <NavigationMenuItem>
                             <NavigationMenuTrigger>
                                 Characters
@@ -62,7 +74,6 @@ const Navbar = () => {
                                             </a>
                                         </NavigationMenuLink>
                                     </li>
-
                                     {characters.map((character) => (
                                         <ListItem
                                             key={character.title}
@@ -76,7 +87,6 @@ const Navbar = () => {
                             </NavigationMenuContent>
                         </NavigationMenuItem>
 
-                        {/* Dropdown for Episodes */}
                         <NavigationMenuItem>
                             <NavigationMenuTrigger>
                                 Episodes
@@ -105,7 +115,6 @@ const Navbar = () => {
                                             </a>
                                         </NavigationMenuLink>
                                     </li>
-
                                     {episodes.map((episode) => (
                                         <ListItem
                                             key={episode.title}
@@ -119,9 +128,8 @@ const Navbar = () => {
                             </NavigationMenuContent>
                         </NavigationMenuItem>
 
-                        {/* No dropdown for Homepage */}
                         <NavigationMenuItem>
-                            <Link href="/" legacyBehavior passHref>
+                            <Link href="/" passHref legacyBehavior>
                                 <NavigationMenuLink
                                     className={navigationMenuTriggerStyle()}
                                 >
@@ -133,61 +141,45 @@ const Navbar = () => {
                 </NavigationMenu>
             </div>
 
-            {/* Right Side: Search Bar and Burger Menu */}
-            <div className="flex items-center w-full lg:w-auto">
-                {/* Search Bar for Larger Screens */}
-                <div className="hidden lg:block w-full lg:max-w-2xl">
-                    <div className="relative">
-                        <Input
-                            type="text"
-                            placeholder="Search..."
-                            className="w-full border border-gray-300 rounded-md p-2 pl-2"
-                        />
-                        <button className="absolute right-2 top-2 flex items-center">
-                            <SearchIcon className="h-5 w-5 text-gray-500" />
-                        </button>
-                    </div>
+            {/* Dropdown Menu for Mobile */}
+            {isMenuOpen && (
+                <div className="lg:hidden absolute top-16 left-0 right-0 bg-white shadow-md p-6 z-50">
+                    <ul className="space-y-4">
+                        <li>
+                            <Link
+                                href="/characters"
+                                className="text-gray-700 hover:text-blue-600"
+                                onClick={toggleMenu}
+                            >
+                                Characters
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                href="/episodes"
+                                className="text-gray-700 hover:text-blue-600"
+                                onClick={toggleMenu}
+                            >
+                                Episodes
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                href="/"
+                                className="text-gray-700 hover:text-blue-600"
+                                onClick={toggleMenu}
+                            >
+                                Homepage
+                            </Link>
+                        </li>
+                    </ul>
                 </div>
-
-                {/* Burger Menu for Small Screens */}
-                <div className="lg:hidden relative absolute">
-                    <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                        <BurgerIcon className="h-8 w-8 text-gray-800" />
-                    </button>
-
-                    {isMenuOpen && (
-                        <div className="absolute top-16 right-0 w-64 bg-white shadow-lg">
-                            <ul className="flex flex-col space-y-2 p-4">
-                                <li>
-                                    <Link href="/" className="text-gray-800">
-                                        Homepage
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        href="/characters"
-                                        className="text-gray-800"
-                                    >
-                                        Characters
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        href="/episodes"
-                                        className="text-gray-800"
-                                    >
-                                        Episodes
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
-                    )}
-                </div>
-            </div>
+            )}
         </nav>
     )
 }
 
+// ListItem Component
 const ListItem = forwardRef<
     React.ElementRef<'a'>,
     React.ComponentPropsWithoutRef<'a'>
