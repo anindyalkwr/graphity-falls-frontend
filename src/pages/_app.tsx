@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                 <title>Graphity Falls</title>
 
                 {/* Favicon for the browser tab */}
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" href="icons/favicon.ico" />
             </Head>
 
             {/* Navbar with a fixed position */}
