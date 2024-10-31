@@ -25,10 +25,10 @@ const Custom404 = () => {
                         Page Not Found
                     </p>
                     <p className="text-lg font-semibold text-gray-700">
-                        It seems that the page you're looking for doesn't exist.
-                        If you think this is an error, please check the URL or
-                        reach out to us through the contact information in the
-                        footer.
+                        It seems that the page you&apos;re looking for
+                        doesn&apos;t exist. If you think this is an error,
+                        please check the URL or reach out to us through the
+                        contact information in the footer.
                     </p>
                 </div>
             </div>
