@@ -3,27 +3,25 @@ import { FaSearch } from 'react-icons/fa'
 
 const Home = () => {
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 px-4">
+        <div className="flex flex-col items-center justify-center min-h-screen px-4">
             {/* Title with Type Animation */}
             <h1 className="text-2xl md:text-4xl font-bold mb-8 text-center leading-snug">
-                Discover the Power of
+                Get to know all the fun and quirky characters from
                 <br />
                 <span className="text-blue-500">
                     <TypeAnimation
                         sequence={[
-                            ' Graphity Falls: A Graph Database',
+                            'SpongeBob SquarePants, including SpongeBob, Patrick, Squidward, and more!',
                             2500,
-                            ' for SpongeBob Episodes',
+                            'Discover episodes from the hit series, from the classic "Pilot" to fan favorites like "Band Geeks"!',
                             2500,
-                            ' of Iconic Characters',
+                            'Explore and search for characters, episodes, and iconic moments from the show!',
                             2500,
-                            ' and Fun Adventures',
-                            2500,
-                            ' in Quirky Moments!',
+                            'Use the search bar to dive into quirky SpongeBob adventures!',
                             2500,
                         ]}
                         wrapper="span"
-                        speed={25}
+                        speed={40}
                         repeat={Infinity}
                         style={{ display: 'inline-block' }}
                     />

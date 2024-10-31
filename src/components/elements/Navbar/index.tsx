@@ -25,13 +25,12 @@ const Navbar = () => {
     return (
         <nav className="bg-white shadow-md py-4 px-6 flex items-center relative">
             {/* Logo and Title */}
-            <div className="flex items-center space-x-4 w-full lg:w-auto">
-                <LogoIcon className="h-8 w-8 text-black" />
-                <Link
-                    href="/"
-                    className="scroll-m-20 text-2xl font-semibold tracking-tight"
-                >
-                    Graphity Falls
+            <div className="flex items-center space-x-2 w-full lg:w-auto">
+                <Link href="/" className="flex items-center space-x-2">
+                    <LogoIcon className="h-8 w-8 text-black" />
+                    <span className="scroll-m-20 text-yellow-500 text-2xl mb-1 font-bold tracking-tight">
+                        Graphity Falls
+                    </span>
                 </Link>
             </div>
 
@@ -148,7 +147,7 @@ const Navbar = () => {
                         <li>
                             <Link
                                 href="/characters"
-                                className="text-gray-700 hover:text-blue-600"
+                                className="block rounded-md p-3 text-gray-700 hover:bg-gray-200 hover:text-blue-600 transition-colors font-semibold"
                                 onClick={toggleMenu}
                             >
                                 Characters
@@ -157,7 +156,7 @@ const Navbar = () => {
                         <li>
                             <Link
                                 href="/episodes"
-                                className="text-gray-700 hover:text-blue-600"
+                                className="block rounded-md p-3 text-gray-700 hover:bg-gray-200 hover:text-blue-600 transition-colors font-semibold"
                                 onClick={toggleMenu}
                             >
                                 Episodes
@@ -166,7 +165,7 @@ const Navbar = () => {
                         <li>
                             <Link
                                 href="/"
-                                className="text-gray-700 hover:text-blue-600"
+                                className="block rounded-md p-3 text-gray-700 hover:bg-gray-200 hover:text-blue-600 transition-colors font-semibold"
                                 onClick={toggleMenu}
                             >
                                 Homepage
