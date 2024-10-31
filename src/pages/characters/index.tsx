@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import characters from './constant'
 
 const Characters = () => {
@@ -23,10 +24,12 @@ const Characters = () => {
                                 style={{ padding: '10px', margin: '0 10px' }}
                             >
                                 <div className="bg-white w-full h-48 flex items-center justify-center">
-                                    <img
+                                    <Image
                                         src={character.image}
                                         alt={character.title}
-                                        className="w-full h-full object-contain bg-white"
+                                        width={250} // Set width for image
+                                        height={200} // Set height for image
+                                        className="object-contain bg-white"
                                     />
                                 </div>
                                 <div className="p-4 text-center">
@@ -44,21 +47,20 @@ const Characters = () => {
             </div>
 
             <style>{`
-          .animate-scroll {
-            display: flex;
-            animation: scroll 30s linear infinite;
-            // Ensuring enough width to accommodate duplicated characters for a seamless scroll
-            width: calc(250px * ${characters.length} * 2 + 10px * ${characters.length} * 2);
-          }
-          @keyframes scroll {
-            0% {
-              transform: translateX(0);
-            }
-            100% {
-              transform: translateX(-50%);
-            }
-          }
-        `}</style>
+              .animate-scroll {
+                display: flex;
+                animation: scroll 30s linear infinite;
+                width: calc(250px * ${characters.length} * 2 + 10px * ${characters.length} * 2);
+              }
+              @keyframes scroll {
+                0% {
+                  transform: translateX(0);
+                }
+                100% {
+                  transform: translateX(-50%);
+                }
+              }
+            `}</style>
         </div>
     )
 }
