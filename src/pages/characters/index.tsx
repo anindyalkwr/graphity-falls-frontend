@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import characters from './constant'
+import characters from '@/data/characters'
 
 const Characters = () => {
     return (
