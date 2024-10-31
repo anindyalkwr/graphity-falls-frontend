@@ -3,8 +3,8 @@ import React from 'react'
 
 const Footer = () => {
     return (
-        <footer className="py-8 px-4 mt-auto bg-blue-300 text-white">
-            <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 border-t border-gray-700 pt-8">
+        <footer className="py-8 px-4 mt-auto bg-gray-700 text-white">
+            <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 pt-8">
                 {/* Column 1: Logo and Copyright */}
                 <div className="text-center md:text-left">
                     <LogoIcon className="h-16 w-16 mx-auto md:mx-0 mb-4" />

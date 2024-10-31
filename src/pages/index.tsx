@@ -8,7 +8,7 @@ const Home = () => {
             <h1 className="text-2xl md:text-4xl font-bold mb-8 text-center leading-snug">
                 Get to know all the fun and quirky characters from
                 <br />
-                <span className="text-blue-500">
+                <span className="text-orange-500">
                     <TypeAnimation
                         sequence={[
                             'SpongeBob SquarePants, including SpongeBob, Patrick, Squidward, and more!',

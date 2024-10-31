@@ -13,7 +13,7 @@ const Custom404 = () => {
                 {/* Column 1: Quirky Text */}
                 <div className="text-center md:text-left md:justify-self-center">
                     <h1
-                        className="text-5xl font-extrabold text-yellow-500 mb-4"
+                        className="text-5xl font-extrabold text-orange-500 mb-4"
                         style={{ letterSpacing: '-1px' }}
                     >
                         Oops!

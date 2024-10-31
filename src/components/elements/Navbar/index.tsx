@@ -28,7 +28,7 @@ const Navbar = () => {
             <div className="flex items-center space-x-2 w-full lg:w-auto">
                 <Link href="/" className="flex items-center space-x-2">
                     <LogoIcon className="h-8 w-8 text-black" />
-                    <span className="scroll-m-20 text-yellow-500 text-2xl mb-1 font-bold tracking-tight">
+                    <span className="scroll-m-20 text-blue-600 text-2xl mb-1 font-bold tracking-tight">
                         Graphity Falls
                     </span>
                 </Link>

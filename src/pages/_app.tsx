@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             </div>
 
             {/* Main content with padding to account for navbar height */}
-            <main className="flex-grow bg-gray-25">
+            <main className="flex-grow bg-gray-50">
                 <Component {...pageProps} />
             </main>
 
