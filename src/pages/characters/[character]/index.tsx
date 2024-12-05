@@ -83,6 +83,8 @@ const CharacterInfo = () => {
                 const href =
                     predicate.includes('#hasFirstAppearance') ||
                     predicate.includes('hasFirstAppearance') ||
+                    predicate.includes('#hasLatestAppearance') ||
+                    predicate.includes('hasLatestAppearance') ||
                     predicate.includes('#hasAppearance') ||
                     predicate.includes('hasAppearance')
                         ? `/episodes/${lastPart}`
