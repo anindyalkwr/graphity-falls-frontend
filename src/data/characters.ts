@@ -1,26 +1,26 @@
 const characters = [
     {
         image: '/images/spongebob.png',
-        name: 'spongebob',
+        name: 'SpongeBobSquarePants',
         title: 'SpongeBob SquarePants',
         description: 'Absorbent, yellow, and porous – loves jellyfishing!',
     },
     {
         image: '/images/patrick.png',
-        name: 'patrick',
+        name: 'PatrickStar',
         title: 'Patrick Star',
         description:
             'SpongeBob’s silly, starfish best buddy who’s full of surprises!',
     },
     {
         image: '/images/squidward.png',
-        name: 'squidward',
+        name: 'SquidwardJQTentacles',
         title: 'Squidward Tentacles',
         description: 'Grumpy but talented, he dreams of fame and peace!',
     },
     {
         image: '/images/mr-krabs.png',
-        name: 'mr-krabs',
+        name: 'EugeneHaroldKrabs',
         title: 'Mr. Krabs',
         description: 'Money-loving, Krusty Krab owner with a hearty laugh!',
     },
@@ -32,14 +32,14 @@ const characters = [
     },
     {
         image: '/images/plankton.png',
-        name: 'plankton',
+        name: 'SheldonJPlankton',
         title: 'Plankton',
         description:
             'Evil genius with big dreams of stealing Krabby Patty secrets!',
     },
     {
         image: '/images/gary.png',
-        name: 'gary',
+        name: 'GaroldGaryWilson%2CJr',
         title: 'Gary the Snail',
         description:
             'Loyal pet and friend to SpongeBob, known for his wise meows.',

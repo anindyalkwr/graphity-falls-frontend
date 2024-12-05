@@ -24,18 +24,18 @@ export const characters: {
 }[] = [
     {
         title: 'SpongeBob',
-        href: '/characters/spongebob',
+        href: '/characters/SpongeBobSquarePants',
         description:
             'SpongeBob SquarePants is the title character of the show.',
     },
     {
         title: 'Patrick',
-        href: '/characters/patrick',
+        href: '/characters/PatrickStar',
         description: "Patrick Star is SpongeBob's best friend.",
     },
     {
         title: 'Squidward',
-        href: '/characters/squidward',
+        href: '/characters/SquidwardJQTentacles',
         description: "Squidward Tentacles is SpongeBob's grumpy neighbor.",
     },
 ]
@@ -43,19 +43,19 @@ export const characters: {
 export const episodes: { title: string; href: string; description: string }[] =
     [
         {
-            title: 'Pilot',
-            href: '/episodes/pilot',
+            title: 'Help Wanted',
+            href: '/episodes/HelpWanted',
             description: 'The first episode of SpongeBob SquarePants.',
         },
         {
             title: 'Band Geeks',
-            href: '/episodes/band-geeks',
+            href: '/episodes/BandGeeks',
             description:
                 'Squidward assembles a band to perform at the Bubble Bowl.',
         },
         {
             title: 'F.U.N.',
-            href: '/episodes/fun',
+            href: '/episodes/FUN',
             description: 'SpongeBob tries to teach Plankton about fun.',
         },
     ]

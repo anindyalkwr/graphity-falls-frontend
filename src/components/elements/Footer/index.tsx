@@ -36,13 +36,13 @@ const Footer = () => {
                             Anindya Lokeswara - 2106633696
                         </li>
                         <li className="text-sm font-semibold">
-                            Rayhan Putra Randi - 1234567890
+                            Rayhan Putra Randi - 2106705644
                         </li>
                         <li className="text-sm font-semibold">
-                            Debby Fitriani - 1234567890
+                            Deby Febriani - 2001234567
                         </li>
                         <li className="text-sm font-semibold">
-                            Teuku Gevin - 1234567890
+                            Teuku Gevin Taufan - 2106750194
                         </li>
                     </ul>
                 </div>
