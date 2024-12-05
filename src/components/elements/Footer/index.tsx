@@ -39,7 +39,7 @@ const Footer = () => {
                             Rayhan Putra Randi - 2106705644
                         </li>
                         <li className="text-sm font-semibold">
-                            Deby Febriani - 2001234567
+                            Deby Febriani - 2006568885
                         </li>
                         <li className="text-sm font-semibold">
                             Teuku Gevin Taufan - 2106750194
