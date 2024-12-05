@@ -1,25 +1,30 @@
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
-import { FaArrowRight } from 'react-icons/fa' // For the arrow icon on the redirect button
+import { FaArrowRight } from 'react-icons/fa'
+
+interface Entity {
+    entLabel: { value: string }
+    entType: { value: string }
+    entity: { value: string }
+}
 
 const SearchPage = () => {
     const router = useRouter()
-    const { filter } = router.query // Get the dynamic route parameter 'filter'
-    const [entities, setEntities] = useState<any[]>([])
+    const { filter } = router.query
+    const [entities, setEntities] = useState<Entity[]>([]) // Specify the type for entities
     const [pagination, setPagination] = useState({
         page: 1,
         pageSize: 10,
         totalPages: 1,
     })
     const [loading, setLoading] = useState(false)
-    const [inputPage, setInputPage] = useState(pagination.page) // Track input value for pagination
+    const [inputPage, setInputPage] = useState(pagination.page)
 
-    // Fetch data based on the 'filter' parameter and pagination
     const fetchData = async (filter: string, page = 1) => {
-        if (!filter) return // Prevent fetching if filter is not defined
+        if (!filter) return
         setLoading(true)
         try {
-            const apiUrl = process.env.NEXT_PUBLIC_API_URL // Access the environment variable
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL
             if (!apiUrl)
                 throw new Error('API URL not defined in environment variables')
 
@@ -44,7 +49,7 @@ const SearchPage = () => {
 
     useEffect(() => {
         if (filter) {
-            fetchData(filter as string, pagination.page) // Ensure 'filter' is a string
+            fetchData(filter as string, pagination.page)
         }
     }, [filter, pagination.page])
 
@@ -53,16 +58,16 @@ const SearchPage = () => {
             ...prev,
             page,
         }))
-        setInputPage(page) // Update the input page as well
+        setInputPage(page)
     }
 
     const handleRedirect = (entType: string, entId: string) => {
-        const type = entType.split('/').pop() // Extract "Character" or "Episode"
-        const id = entId.split('/').pop() // Extract the last part of the ID
+        const type = entType.split('/').pop()
+        const id = entId.split('/').pop()
         if (type === 'Character') {
-            router.push(`/characters/${id}`) // Redirect to character entity page
+            router.push(`/characters/${id}`)
         } else if (type === 'Episode') {
-            router.push(`/episodes/${id}`) // Redirect to episode entity page
+            router.push(`/episodes/${id}`)
         }
     }
 
@@ -70,9 +75,8 @@ const SearchPage = () => {
         if (e.key === 'Enter') {
             const page = Number(inputPage)
             if (page >= 1 && page <= pagination.totalPages) {
-                handlePageChange(page) // Change the page only when Enter is pressed
+                handlePageChange(page)
             } else {
-                // Optional: Show an error or reset the input if the page is invalid
                 alert('Please enter a valid page number.')
             }
         }
@@ -80,26 +84,23 @@ const SearchPage = () => {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen px-4 py-8 bg-gray-50">
-            {/* Title */}
             <h2 className="text-2xl md:text-4xl font-bold mb-8 text-center text-yellow-400 drop-shadow-md mt-20">
-                Search results for "{filter}"
+                Search results for &quot;{filter}&quot;
             </h2>
 
-            {/* Loading Spinner */}
             {loading && (
                 <div className="text-center text-gray-500">Loading...</div>
             )}
 
-            {/* Cards for Results */}
             {!loading && entities.length > 0 && (
                 <div className="w-full max-w-6xl">
                     <div className="space-y-4">
                         {entities
                             .filter((entity) =>
                                 ['Character', 'Episode'].includes(
-                                    entity.entType.value.split('/').pop()
+                                    entity.entType.value.split('/').pop()!
                                 )
-                            ) // Filter only "Character" or "Episode"
+                            )
                             .map((entity, index) => (
                                 <div
                                     key={index}
@@ -130,7 +131,6 @@ const SearchPage = () => {
                                             {entity.entType.value
                                                 .split('/')
                                                 .pop()}{' '}
-                                            {/* Display "Character" or "Episode" */}
                                         </p>
                                     </div>
                                     <div className="flex-shrink-0">
@@ -152,17 +152,14 @@ const SearchPage = () => {
                 </div>
             )}
 
-            {/* No Results */}
             {!loading && entities.length === 0 && (
                 <div className="text-center text-gray-500">
                     No results found.
                 </div>
             )}
 
-            {/* Pagination Controls */}
             {!loading && (
                 <div className="flex justify-center items-center space-x-4 mt-6">
-                    {/* Previous Button */}
                     <button
                         className="px-4 py-2 bg-gray-500 text-white rounded-lg"
                         onClick={() =>
@@ -175,14 +172,15 @@ const SearchPage = () => {
                         Previous
                     </button>
 
-                    {/* Current Page Input */}
                     <div className="flex items-center space-x-2">
                         <span className="text-sm text-gray-600">Page</span>
                         <input
                             type="number"
                             value={inputPage}
-                            onChange={(e) => setInputPage(e.target.value)} // Update the input value on change
-                            onKeyDown={handleKeyDown} // Handle Enter key press
+                            onChange={(e) => {
+                                setInputPage(Number(e.target.value))
+                            }}
+                            onKeyDown={handleKeyDown}
                             className="w-16 px-3 py-2 border rounded-lg text-center"
                             min={1}
                             max={pagination.totalPages}
@@ -192,7 +190,6 @@ const SearchPage = () => {
                         </span>
                     </div>
 
-                    {/* Next Button */}
                     <button
                         className="px-4 py-2 bg-gray-500 text-white rounded-lg"
                         onClick={() =>
